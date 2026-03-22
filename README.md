@@ -5,9 +5,13 @@ Soul Shop is a web application  that simulates a real world online store where u
 The Soul Shop application is designed to provide a smooth and engaging shopping experience, it is hence divided into several key sections that reflect ecommerce functionality.
 
 # Requirements
+
+
 # Backend dependencies
+```bash
 Express
 mongoose
 dotenv
 nodemon
 cors
+```
