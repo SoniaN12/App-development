@@ -6,12 +6,20 @@ The Soul Shop application is designed to provide a smooth and engaging shopping 
 
 # Requirements
 
-
 # Backend dependencies
 ```bash
+node.js
 Express
 mongoose
 dotenv
 nodemon
 cors
 ```
+OtherRequirements
+``` bash
+Vs code or pycharm
+Browser
+html/css
+```
+
+
