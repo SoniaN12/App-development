@@ -1,0 +1,44 @@
+<script>
+function renderPayPalButton(product) {
+  paypal.Buttons({
+
+    createOrder: function(data, actions) {
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: product.price.toString()
+          }
+        }]
+      });
+    },
+
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(async function(details) {
+
+        alert("Payment successful by " + details.payer.name.given_name);
+
+        // 🔥 Send order to backend
+        await fetch("http://localhost:5000/api/orders", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            productId: product.id,
+            productName: product.name,
+            price: product.price,
+            paymentId: details.id
+          })
+        });
+
+      });
+    },
+
+    onError: function(err) {
+      console.error(err);
+      alert("Payment failed");
+    }
+
+  }).render('#paypal-button-container');
+}
+</script>
