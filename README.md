@@ -17,7 +17,7 @@ cors
 ```
 OtherRequirements
 ``` bash
-Vs code or pycharm
+Vscode or pycharm
 Browser
 html/css
 ```
